@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jany Menezes | Emagrecimento e Hipertrofia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#8f1d5c;
+      --primary-soft:#b53f7c;
+      --secondary:#ff7a45;
+      --accent:#ffb347;
+      --bg:#fff7fb;
+      --bg-soft:#ffeef6;
+      --white:#ffffff;
+      --text:#2c1f29;
+      --muted:#6f6270;
+      --serif:'Cormorant Garamond', serif;
+      --sans:'Montserrat', sans-serif;
+      --shadow:0 28px 70px rgba(143,29,92,.14);
+      --transition:all .35s cubic-bezier(.25,1,.5,1);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:var(--sans);
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.65;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;}
+    .container{width:100%;max-width:1180px;margin:0 auto;padding:0 24px;}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:var(--white);
+      padding:18px 34px;
+      border:none;
+      border-radius:999px;
+      text-transform:uppercase;
+      letter-spacing:1.3px;
+      font-size:12px;
+      font-weight:800;
+      transition:var(--transition);
+      box-shadow:0 18px 36px rgba(143,29,92,.22);
+    }
+    .btn:hover{transform:translateY(-3px) scale(1.01);box-shadow:0 20px 42px rgba(143,29,92,.18);}
+
+    .tag{
+      display:inline-block;
+      color:var(--primary-soft);
+      background:rgba(181,63,124,.10);
+      border:1px solid rgba(181,63,124,.14);
+      padding:8px 14px;
+      border-radius:999px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:10px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+    .title{
+      font-family:var(--serif);
+      color:var(--primary);
+      font-size:48px;
+      line-height:1.1;
+      font-weight:400;
+      margin-bottom:18px;
+    }
+    .subtitle{
+      color:var(--muted);
+      font-size:16px;
+      font-weight:400;
+      max-width:680px;
+      margin-bottom:38px;
+    }
+    section{padding:88px 0;position:relative;}
+
+    header{
+      position:absolute;
+      top:0;left:0;width:100%;z-index:10;padding:32px 0;
+    }
+    .nav{display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-family:var(--serif);font-size:29px;color:var(--primary);letter-spacing:1px;font-weight:500;}
+    .crn{font-size:12px;color:var(--primary-soft);letter-spacing:1px;font-weight:700;text-transform:uppercase;}
+
+    .hero{
+      min-height:96vh;
+      display:flex;
+      align-items:center;
+      padding-top:170px;
+      padding-bottom:88px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(255,122,69,.22), transparent 30%),
+        radial-gradient(circle at 10% 20%, rgba(181,63,124,.14), transparent 34%),
+        linear-gradient(180deg,#fff2f8 0%, var(--bg) 100%);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:78px;align-items:center;}
+    .hero h1{
+      font-family:var(--serif);
+      font-size:66px;
+      color:var(--primary);
+      line-height:1.04;
+      font-weight:400;
+      margin-bottom:22px;
+    }
+    .hero h1 em{font-style:italic;color:var(--secondary);}
+    .hero p{font-size:17px;color:var(--muted);max-width:590px;margin-bottom:34px;}
+    .hero-proof{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:42px;
+      padding-top:28px;
+      border-top:1px solid rgba(181,63,124,.16);
+      max-width:650px;
+    }
+    .proof-item{
+      background:rgba(255,255,255,.74);
+      border:1px solid rgba(181,63,124,.10);
+      border-radius:18px;
+      padding:18px 16px;
+      box-shadow:0 12px 28px rgba(143,29,92,.06);
+    }
+    .proof-item strong{display:block;font-family:var(--serif);color:var(--primary);font-size:30px;line-height:1;margin-bottom:8px;}
+    .proof-item span{font-size:12px;color:var(--muted);line-height:1.4;display:block;}
+
+    .portrait-wrap{position:relative;display:flex;justify-content:center;}
+    .portrait-frame{
+      width:100%;max-width:430px;aspect-ratio:4/5;border-radius:220px 220px 20px 20px;
+      overflow:hidden;border:9px solid var(--white);box-shadow:var(--shadow);
+      background:linear-gradient(180deg,var(--bg-soft),#fff);
+    }
+    .portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 6s ease;}
+    .portrait-wrap:hover img{transform:scale(1.04);}
+    .floating-card{
+      position:absolute;left:3%;bottom:34px;max-width:290px;background:rgba(255,255,255,.93);
+      border:1px solid rgba(255,122,69,.16);backdrop-filter:blur(12px);padding:20px 22px;border-radius:18px;
+      box-shadow:0 18px 38px rgba(143,29,92,.10);
+    }
+    .floating-card strong{display:block;font-family:var(--serif);font-size:25px;color:var(--primary);margin-bottom:6px;line-height:1.1;}
+    .floating-card span{font-size:12px;color:var(--muted);line-height:1.45;display:block;}
+
+    .pain{background:var(--white);}
+    .center{text-align:center;display:flex;flex-direction:column;align-items:center;}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+    .card{
+      background:linear-gradient(180deg,#fff 0%,#fff7fb 100%);
+      border:1px solid rgba(181,63,124,.10);
+      padding:40px 32px;border-radius:24px;transition:var(--transition);
+      box-shadow:0 14px 32px rgba(143,29,92,.05);
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 22px 46px rgba(143,29,92,.10);border-color:rgba(255,122,69,.24);}
+    .card h3{font-family:var(--serif);font-size:28px;line-height:1.1;color:var(--primary);margin-bottom:14px;}
+    .card p{font-size:14px;color:var(--muted);}
+
+    .method{background:linear-gradient(180deg,#fff7fb 0%, #fff3f8 100%);}
+    .split{display:grid;grid-template-columns:.92fr 1.08fr;gap:88px;align-items:center;}
+    .image-box{position:relative;}
+    .image-box img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:26px;box-shadow:var(--shadow);}
+    .image-box:after{content:"";position:absolute;inset:26px -26px -26px 26px;border:2px solid rgba(255,122,69,.35);border-radius:26px;z-index:-1;}
+    .steps{display:flex;flex-direction:column;gap:28px;}
+    .step{display:flex;gap:22px;align-items:flex-start;}
+    .num{min-width:46px;font-family:var(--serif);font-size:36px;line-height:1;color:var(--secondary);}
+    .step h3{font-family:var(--serif);font-size:26px;color:var(--primary);margin-bottom:8px;line-height:1.12;}
+    .step p{font-size:14px;color:var(--muted);}
+
+    .about{background:var(--white);}
+    .about .split{grid-template-columns:1.08fr .92fr;}
+    .about-text p{font-size:16px;color:var(--muted);margin-bottom:20px;}
+    .signature{font-family:var(--serif);font-size:30px;color:var(--primary);font-style:italic;margin-top:30px;}
+
+    .cta{
+      background:linear-gradient(135deg,var(--primary),#6f1747 55%, var(--secondary));
+      color:var(--white);
+      text-align:center;
+      padding:100px 0;
+    }
+    .cta .title{color:var(--white);font-size:56px;max-width:820px;margin-left:auto;margin-right:auto;}
+    .cta .subtitle{color:rgba(255,255,255,.78);margin-left:auto;margin-right:auto;}
+    .cta .btn{background:var(--white);color:var(--primary);box-shadow:0 18px 36px rgba(0,0,0,.16);}
+    .cta .btn:hover{background:#fff7fb;color:var(--primary);}
+    .cta-note{margin-top:20px;color:rgba(255,255,255,.60);font-size:13px;letter-spacing:.4px;}
+
+    footer{background:#2d1224;color:rgba(255,255,255,.52);padding:56px 0 34px;font-size:13px;}
+    .footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:center;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:34px;margin-bottom:26px;}
+    .footer-logo{font-family:var(--serif);font-size:26px;color:var(--white);display:block;margin-bottom:8px;}
+    .footer-links{display:flex;gap:28px;}
+    .footer-links a{color:rgba(255,255,255,.62);transition:var(--transition);}
+    .footer-links a:hover{color:#fff;}
+    .footer-bottom{display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:12px;}
+    .credit{letter-spacing:1.5px;color:rgba(255,255,255,.68);font-weight:700;}
+
+    @media(max-width:1024px){
+      section{padding:74px 0;}
+      .hero{padding-top:140px;padding-bottom:72px;min-height:auto;text-align:center;}
+      .hero-grid,.split,.about .split{grid-template-columns:1fr;gap:56px;}
+      .hero p,.hero-proof{margin-left:auto;margin-right:auto;}
+      .portrait-wrap{order:-1;}
+      .cards{grid-template-columns:1fr;gap:20px;}
+      .image-box:after{display:none;}
+      .title{font-size:40px;}
+      .hero h1{font-size:52px;}
+      .cta .title{font-size:42px;}
+    }
+
+    @media(max-width:768px){
+      .container{padding:0 20px;}
+      header{padding:24px 0;}
+      .logo{font-size:24px;}
+      .crn{font-size:11px;}
+      section{padding:60px 0;}
+      .hero{padding-top:114px;padding-bottom:56px;}
+      .hero h1{font-size:42px;}
+      .hero p{font-size:15.5px;margin-bottom:28px;}
+      .btn{width:100%;padding:17px 20px;font-size:11px;letter-spacing:1.2px;}
+      .hero-proof{grid-template-columns:1fr;gap:14px;margin-top:32px;padding-top:24px;text-align:left;}
+      .proof-item{padding:16px 14px;}
+      .portrait-frame{max-width:330px;border-width:7px;}
+      .floating-card{display:none;}
+      .title{font-size:36px;}
+      .subtitle{font-size:15px;margin-bottom:32px;}
+      .card{padding:34px 26px;border-radius:20px;}
+      .step{gap:18px;}
+      .num{font-size:32px;min-width:40px;}
+      .cta{padding:72px 0;}
+      .cta .title{font-size:36px;}
+      .footer-grid,.footer-bottom{flex-direction:column;text-align:center;}
+      .footer-links{flex-direction:column;gap:16px;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a href="#" class="logo">Jany Menezes</a>
+        <span class="crn">Emagrecimento & Hipertrofia</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="tag">Resultados reais, sem restrição</span>
+          <h1>Transforme seu corpo com <em>emagrecimento e hipertrofia</em> sem dietas restritivas.</h1>
+          <p>Um acompanhamento nutricional individualizado para quem quer emagrecer, ganhar massa, melhorar composição corporal e conquistar resultados sustentáveis com estratégia e acompanhamento de verdade.</p>
+          <a class="btn" href="https://api.whatsapp.com/send?phone=5586995660202&text=Oii,%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20sua%20consulta">Quero mais informações</a>
+          <div class="hero-proof">
+            <div class="proof-item"><strong>Online</strong><span>atendimento prático para qualquer lugar</span></div>
+            <div class="proof-item"><strong>Real</strong><span>resultados sustentáveis sem terrorismo alimentar</span></div>
+            <div class="proof-item"><strong>Plano</strong><span>protocolo alimentar feito para sua rotina</span></div>
+          </div>
+        </div>
+        <div class="portrait-wrap">
+          <div class="portrait-frame">
+            <img src="expert.jpg" alt="Nutricionista Jany Menezes">
+          </div>
+          <div class="floating-card">
+            <strong>Jany Menezes</strong>
+            <span>Especialista em emagrecimento e hipertrofia com acompanhamento individualizado.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pain">
+    <div class="container">
+      <div class="center">
+        <span class="tag">Seu objetivo merece estratégia</span>
+        <h2 class="title">Nem toda dieta gera transformação.</h2>
+        <p class="subtitle">Se você já tentou emagrecer ou ganhar massa com cardápios prontos, restrição exagerada ou sem um plano adaptado à sua vida, sabe como é frustrante não conseguir sustentar o resultado.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Emagrecimento travado</h3>
+          <p>Sem uma estratégia adequada, o corpo não responde como deveria e o processo vira uma sequência de recomeços cansativos.</p>
+        </div>
+        <div class="card">
+          <h3>Hipertrofia sem direção</h3>
+          <p>Ganhar massa exige organização alimentar, constância e um plano inteligente, não apenas comer mais sem critério.</p>
+        </div>
+        <div class="card">
+          <h3>Dietas que não duram</h3>
+          <p>Quando o plano é restritivo demais, a adesão cai. O resultado real vem de um protocolo possível, ajustado e individualizado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="method">
+    <div class="container">
+      <div class="split">
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80" alt="Planejamento alimentar saudável e colorido">
+        </div>
+        <div>
+          <span class="tag">Protocolo individualizado</span>
+          <h2 class="title">Um plano pensado para seu corpo e sua rotina</h2>
+          <p class="subtitle">Na consulta, a alimentação é organizada de acordo com seu objetivo, rotina, composição corporal e preferências, para gerar resultado com mais constância e menos sofrimento.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="num">01</div>
+              <div><h3>Avaliação completa</h3><p>Entendimento da sua rotina, hábitos, objetivo de emagrecimento ou hipertrofia e dos obstáculos que estão travando sua evolução.</p></div>
+            </div>
+            <div class="step">
+              <div class="num">02</div>
+              <div><h3>Estratégia personalizada</h3><p>Montagem de um protocolo alimentar individualizado, com foco em resultado real e uma rotina alimentar que seja aplicável na prática.</p></div>
+            </div>
+            <div class="step">
+              <div class="num">03</div>
+              <div><h3>Acompanhamento e ajustes</h3><p>O plano evolui com você, com ajustes ao longo do processo para manter aderência, progresso e mais segurança na transformação.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+      <div class="split">
+        <div class="about-text">
+          <span class="tag">A profissional</span>
+          <h2 class="title">Jany Menezes</h2>
+          <p>Nutricionista com foco em emagrecimento e hipertrofia, ajudando pacientes a conquistarem composição corporal melhor, rotina alimentar mais organizada e resultados reais sem dietas restritivas.</p>
+          <p>Meu trabalho é baseado em acompanhamento individualizado, com um protocolo adaptado à sua realidade, para que você consiga evoluir com mais consistência e menos extremismo.</p>
+          <p>O objetivo não é só entregar um cardápio, mas construir um caminho sustentável para sua transformação física e alimentar.</p>
+          <div class="signature">Jany Menezes — Nutricionista</div>
+        </div>
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80" alt="Alimentação equilibrada e saudável">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="consulta">
+    <div class="container">
+      <span class="tag">Agendamento</span>
+      <h2 class="title">Comece sua transformação com orientação profissional</h2>
+      <p class="subtitle">Clique no botão abaixo e fale pelo WhatsApp para receber mais informações sobre a consulta e entender como funciona o acompanhamento com foco em emagrecimento e hipertrofia.</p>
+      <a class="btn" href="https://api.whatsapp.com/send?phone=5586995660202&text=Oii,%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20sua%20consulta">Quero saber mais</a>
+      <div class="cta-note">Emagrecimento • Hipertrofia • Protocolo individualizado • Resultados reais</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#inicio" class="footer-logo">Jany Menezes</a>
+          <p>Nutrição com foco em emagrecimento, hipertrofia e resultados sustentáveis sem dietas restritivas.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#inicio">Início</a>
+          <a href="#consulta">Consulta</a>
+          <a href="https://api.whatsapp.com/send?phone=5586995660202&text=Oii,%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20sua%20consulta">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Jany Menezes. Todos os direitos reservados.</p>
+        <p class="credit">Feito por DORYAN</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Nome da imagem da expert: expert.jpg | Coloque esse arquivo na mesma pasta do index.html -->
+</body>
+</html>
